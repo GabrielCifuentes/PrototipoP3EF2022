@@ -22,7 +22,7 @@ public class daoClientes {
     private static final String SQL_SELECT = "SELECT codigo_cliente, nombre_cliente, direccion_cliente, nit_cliente, telefono_cliente, codigo_vendedor, estatus_cliente FROM tbl_clientes";
     private static final String SQL_INSERT = "INSERT INTO tbl_clientes(codigo_cliente, nombre_cliente, direccion_cliente, nit_cliente, telefono_cliente, codigo_vendedor, estatus_cliente) VALUES(?, ?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE tbl_clientes SET nombre_cliente=?, direccion_cliente=?, nit_cliente=?, telefono_cliente=?, codigo_vendedor=?, estatus_cliente=?  WHERE codigo_cliente = ?";
-    private static final String SQL_DELETE = "DELETE FROM tbl_clientes WHERE aplid=?";
+    private static final String SQL_DELETE = "DELETE FROM tbl_clientes WHERE codigo_cliente=?";
     private static final String SQL_QUERY = "SELECT codigo_cliente, nombre_cliente, direccion_cliente, nit_cliente, telefono_cliente, codigo_vendedor, estatus_cliente  FROM tbl_clientes WHERE codigo_cliente = ?";
 
     public List<clsClientes> select() {
@@ -68,15 +68,20 @@ public class daoClientes {
         return clientes;
     }
 
-    public int insert(clsClientes aplicacion) {
+    public int insert(clsClientes cliente) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = clsConexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, aplicacion.getNombreAplicacion());
-            stmt.setString(2, aplicacion.getestadoAplicacion());
+            stmt.setString(1, cliente.getNombre_cliente());
+            stmt.setString(2, cliente.getDireccion_cliente());
+             stmt.setString(3, cliente.getNit_cliente());
+            stmt.setString(4, cliente.getTelefono_cliente());
+             stmt.setString(5, cliente.getCodigo_vendedor());
+            stmt.setString(6, cliente.getEstatus_cliente());
+            
 
 
             System.out.println("ejecutando query:" + SQL_INSERT);
@@ -92,7 +97,7 @@ public class daoClientes {
         return rows;
     }
 
-    public int update(clsClientes aplicacion) {
+    public int update(clsClientes cliente) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -101,12 +106,12 @@ public class daoClientes {
             conn = clsConexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, aplicacion.getNombre_cliente());
-            stmt.setString(2, aplicacion.getDireccion_cliente());
-            stmt.setString(3, aplicacion.getNit_cliente());
-            stmt.setString(4, aplicacion.getTelefono_cliente());
-            stmt.setString(5, aplicacion.getCodigo_vendedor());
-            stmt.setString(6, aplicacion.getEstatus_cliente());
+            stmt.setString(1, cliente.getNombre_cliente());
+            stmt.setString(2, cliente.getDireccion_cliente());
+            stmt.setString(3, cliente.getNit_cliente());
+            stmt.setString(4, cliente.getTelefono_cliente());
+            stmt.setString(5, cliente.getCodigo_vendedor());
+            stmt.setString(6, cliente.getEstatus_cliente());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
