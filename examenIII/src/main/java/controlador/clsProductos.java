@@ -14,18 +14,18 @@ public class clsProductos {
     String nombre_producto;
     String codigo_linea;
     String codigo_marca;
-    Double telefono_cliente;
+    int existencia_producto;
     String estatus_producto;
 
     public clsProductos() {
     }
 
-    public clsProductos(int codigo_producto, String nombre_producto, String codigo_linea, String codigo_marca, Double telefono_cliente, String estatus_producto) {
+    public clsProductos(int codigo_producto, String nombre_producto, String codigo_linea, String codigo_marca, int existencia_producto, String estatus_producto) {
         this.codigo_producto = codigo_producto;
         this.nombre_producto = nombre_producto;
         this.codigo_linea = codigo_linea;
         this.codigo_marca = codigo_marca;
-        this.telefono_cliente = telefono_cliente;
+        this.existencia_producto = existencia_producto;
         this.estatus_producto = estatus_producto;
     }
 
@@ -61,12 +61,12 @@ public class clsProductos {
         this.codigo_marca = codigo_marca;
     }
 
-    public Double getTelefono_cliente() {
-        return telefono_cliente;
+    public int getexistencia_producto() {
+        return existencia_producto;
     }
 
-    public void setTelefono_cliente(Double telefono_cliente) {
-        this.telefono_cliente = telefono_cliente;
+    public void setexistencia_producto(int existencia_producto) {
+        this.existencia_producto = existencia_producto;
     }
 
     public String getEstatus_producto() {
@@ -79,7 +79,7 @@ public class clsProductos {
 
     @Override
     public String toString() {
-        return "clsProductos{" + "codigo_producto=" + codigo_producto + ", nombre_producto=" + nombre_producto + ", codigo_linea=" + codigo_linea + ", codigo_marca=" + codigo_marca + ", telefono_cliente=" + telefono_cliente + ", estatus_producto=" + estatus_producto + '}';
+        return "clsProductos{" + "codigo_producto=" + codigo_producto + ", nombre_producto=" + nombre_producto + ", codigo_linea=" + codigo_linea + ", codigo_marca=" + codigo_marca + ", existencia_producto=" + existencia_producto + ", estatus_producto=" + estatus_producto + '}';
     }
 
       
