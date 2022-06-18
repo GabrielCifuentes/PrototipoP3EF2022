@@ -49,7 +49,7 @@ public class clsLineas {
 
     @Override
     public String toString() {
-        return "clsLineas{" + "codigo_linea=" + codigo_linea + ", nombre_linea=" + nombre_linea + ", estatus_linea=" + estatus_linea + '}';
+        return "tbl_lineas{" + "codigo_linea=" + codigo_linea + ", nombre_linea=" + nombre_linea + ", estatus_linea=" + estatus_linea + '}';
     }
    
     
