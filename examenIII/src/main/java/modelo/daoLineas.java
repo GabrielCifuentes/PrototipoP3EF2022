@@ -20,7 +20,7 @@ import java.util.List;
 public class daoLineas {
 
     private static final String SQL_SELECT = "SELECT codigo_linea, nombre_linea, estatus_linea FROM tbl_lineas";
-    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(codigo_linea, nombre_linea, estatus_linea) VALUES(?, ?,?)";
+    private static final String SQL_INSERT = "INSERT INTO tbl_lineas(nombre_linea, estatus_linea) VALUES(?, ?)";
     private static final String SQL_UPDATE = "UPDATE tbl_lineas SET nombre_linea=?, estatus_linea=?,  WHERE codigo_linea = ?";
     private static final String SQL_DELETE = "DELETE FROM tbl_lineas WHERE codigo_linea=?";
     private static final String SQL_QUERY = "SELECT codigo_linea, nombre_linea, estatus_linea   FROM tbl_lineas WHERE codigo_linea = ?";
